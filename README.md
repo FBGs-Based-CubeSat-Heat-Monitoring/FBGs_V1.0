@@ -1,5 +1,5 @@
 # FBGs_V1.0
-### This is a very initial version, our calculations in ROS are limited to the fibres, but in fact you can transfer the propagation part of the Blender part to C++ in ROS as well.  
+### This is a very initial version, our calculations in ROS are limited to the fibres, but in fact you can transfer the propagation part of the Blender part to C++ in ROS as well. **The c++ code needs to be run under ROS**, we put it here just in case you want to check it but don't need to down the entire VM image.    
   
 Since the file is too large to push on git.    
 Here is the google dive link:https://drive.google.com/drive/folders/1RDbxBo2eF2iyXJox-veGH0fYvCDK7ynd?usp=sharing     
@@ -114,7 +114,7 @@ You can right click you Blender's logo to file location, inside the location use
 ./blender
 ```
 and enter.  
-Click the 'Scripting' on the top bar and open a new draft, code of Blender can be paste. Or using 'open file' is fine.
+Click the 'Scripting' on the top bar and open a new draft, code of Blender can be paste. Or using 'open file' is fine. Then you can select opening **Blender_modeling.py** or just copy the copy and paste it.  
 What you print and recevied from ROS will be shown in the powerShell window but not blender.  
 **If you just want you check the model with self made data, you don't need the powerShell.**
 A small part of your initial algorithm may be carried out in this section.   

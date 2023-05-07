@@ -126,6 +126,8 @@ Here are some explanation and limitation in the hyper parameter setting part:
 2.building_node is the number of the node in each layer, currently you can only set it to multiples of 4,   
 3.offset_z is used to compensate for the heat shield lift caused by the creation of an inflatable Ring at (0,0,0),  
 4.layer it means the number of layer between nosecone and the bottom layer, We have not looked for a more general algorithm to fit all cases, but you can still see how it is deconstructed in this part of the code (lines 37-46). We suggest that you change layer5 to 6 or 4 to see how it changes and to make some improvements.  
+  
+    
 Also in the sensor_read2 function starting at line 248. We are trying to extend the propagation to the other 3 FBGs. This part of the code is not entirely correct and needs further debugging.Of course, if the data handling is implemented in C++, it is not necessary to take care of it.    
 
     

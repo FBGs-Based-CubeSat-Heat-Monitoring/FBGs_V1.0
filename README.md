@@ -7,13 +7,36 @@ There are two zip file inside, one for the ROS system, another for FAZT_I4.
 The way to use the ROS image is descripted in two part below(**Virtual machine and ROS system**).   
   
 ### **The order in which this document is read is not fixed, it simply acts like a user manual. You can read it once from start to finish, read it carefully if you are unsure, and come back to it if something goes wrong.**  
+
+## **After all the set up is done, you can run with following commands**  
+### You will need some terminals:  
+  
+### Terminal 1 for ros core(**don't close it after run it**): **roscore**  
+  
+### Terminal 2 for ros to recevie the data from interrogator:   
+step1: **cd wsfaz/src/rtt_fazt-master**  
+step2: **rttlua -i start.lua**  
+You will observe some erroneous data in Terminal2, which are caused by two situations. 1. there is no wavelength in Windows (the wavelength is out of its range or the reflected wave is not fully reflected back to the interrogator), 2. there are two wavelengths in one Windows size.You can ignore the FBGs that are not functioning properly and sometimes they do not affect the normal operation of other points (as in our case).  
+  
+#### In the meantime you can use the following code to observe the data of the Topic (this part is **not necessary**).    
+Terminal 3:  
+step1: **cd wsfaz/src/rtt_fazt-master**  
+step2: **rostopic echo /wavelenghts **    
+  
+### Now you start recevie data from interrogator to ROS, but you will need to process and send the data out via socket(in **For ROS system** part)  
+you can use VScode's terminal and do follow:  
+step1 under this path( **ros@ubuntu:~/ros_rt_ws$  !!**): **source ./devel/setup.bash**  
+step2: **rosrun ros_c ros_c**  
+You will see it start process some of the data from ROS topic and stop there, because its' socket needs receiver(Blender in our case).  
+
+### Then you use powerShell to run Blender and the python script(**check For Blender part in case you don't understand**). If you have managed to get here, congratulations you have successfully completed all the settings, enjoy your project and good luck!  
   
 ## **For FemtoSense 1.8**   
 This software cannot be used directly in our projects, but it will give you an initial insight into our sensor data and it is highly recommended that you follow the installation process carefully as described in the instructions. After successful installation, you can use it to observe the wavelength variations of different channels under different deformations.   
 Please note that this software should not be run in conjunction with TOPIC on the ROS system (no disaster, the system will tell you that the interface is already occupied).
   
 ## **Setting of IP and PORT**  
-(if you don't know which ip you should use, check the 'Virtual machine and IP address' part, **the number of port is not important** as long as you set both side to same number remain between 1~9999 is fine)  
+(if you don't know which IP you should use in Blender and ROS, check the 'Virtual machine and IP address' part, **the number of port is not important as long as you set both side to same number remain between 1~9999**)  
 For Blender side  
  Line 377-378  
 For ROS side  
@@ -37,7 +60,9 @@ For Linux terminal: input 'ip a' and search the VMnet8 IPv4 Address**
 ## **For ROS system:**  
 The **password** of the ROS system: **ros**  
 The file 'ROS_image' including three files (ROS.mf, ROS.ovf, ROS-disk1.vmdk). Please make sure to save them completely in the same folder.   
-
+  
+VScodeIDE is already available in the image, you can use it to open the current working place and code we have!!      
+  
 Most of your algorithms should be carried out in this section.   
 You can find the listener node code in **/home/ros/ros_rt_ws/src/ros_c/src/ros_c.cpp**, also you can open it via other IDEs.  
 Currently you will see inside the code **line 145** there is a double varable call 'ang', set it to zero to get a good start.     
@@ -47,8 +72,6 @@ The code of the topic is saved in **/home/ros/wsfaz/src/rtt_fazt-master/src/rtt_
 Currently we use VScodeIDE to modified and run our code, we set **Ctrl + Shift + B** compile the entire working space. So every time you modifiy the code, use **ctrl + shift + B** to compile.  
 Feel free to change anything in confortable way.
    
-
-    
     
 ## **For Blender:**  
 **Open you Blender with powerShell when you want to receive the data from ROS system.**  

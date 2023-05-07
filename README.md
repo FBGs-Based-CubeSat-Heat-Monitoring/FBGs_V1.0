@@ -33,13 +33,6 @@ Then you can check you ip address via you Windows or Linux
 **For windows cmd: input 'ipconfig' and search the VMnet8 IPv4 Address  
 For Linux terminal: input 'ip a' and search the VMnet8 IPv4 Address**
     
-## **For Blender:**  
-**Open you Blender with powerShell when you want to receive the data from ROS system.**  
-You can right click you Blender's logo to file location, inside the location use **'shift + rigth click'**, and you will see **'open powerShell window here'**, enter '**./blender**'.  
-Click the 'Scripting' on the top bar and open a new draft, code of Blender can be paste. Or using 'open file' is fine.
-What you print and recevied from ROS will be shown in the powerShell window but not blender.  
-**If you just want you check the model with self made data, you don't need the powerShell.**
-A small part of your initial algorithm may be carried out in this section.  
     
 ## **For ROS system:**  
 The **password** of the ROS system: **ros**  
@@ -54,4 +47,23 @@ The code of the topic is saved in **/home/ros/wsfaz/src/rtt_fazt-master/src/rtt_
 Currently we use VScodeIDE to modified and run our code, we set **Ctrl + Shift + B** compile the entire working space. So every time you modifiy the code, use **ctrl + shift + B** to compile.  
 Feel free to change anything in confortable way.
    
+
+    
+    
+## **For Blender:**  
+**Open you Blender with powerShell when you want to receive the data from ROS system.**  
+You can right click you Blender's logo to file location, inside the location use **'shift + rigth click'**, and you will see **'open powerShell window here'**, enter '**./blender**'.  
+Click the 'Scripting' on the top bar and open a new draft, code of Blender can be paste. Or using 'open file' is fine.
+What you print and recevied from ROS will be shown in the powerShell window but not blender.  
+**If you just want you check the model with self made data, you don't need the powerShell.**
+A small part of your initial algorithm may be carried out in this section.   
+Setting of the Hyper parameter is in line 353-358.   
+Here are some explanation and limitation in the hyper parameter setting part:   
+1.radius and height is easy to understand,  
+2.building_node is the number of the node in each layer, currently you can only set it to multiples of 4,   
+3.offset_z is used to compensate for the heat shield lift caused by the creation of an inflatable Ring at (0,0,0),  
+4.layer it means the number of layer between nosecone and the bottom layer, We have not looked for a more general algorithm to fit all cases, but you can still see how it is deconstructed in this part of the code (lines 37-46). We suggest that you change layer5 to 6 or 4 to see how it changes and to make some improvements.  
+Also in the sensor_read2 function starting at line 248. We are trying to extend the propagation to the other 3 FBGs. This part of the code is not entirely correct and needs further debugging.Of course, if the data handling is implemented in C++, it is not necessary to take care of it.    
+
+    
 

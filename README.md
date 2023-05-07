@@ -105,7 +105,8 @@ Feel free to change anything in confortable way.
     
 ## **For Blender:**  
 **Open you Blender with powerShell when you want to receive the data from ROS system.**  
-You can right click you Blender's logo to file location, inside the location use **'shift + rigth click'**, and you will see **'open powerShell window here'**, enter ```
+You can right click you Blender's logo to file location, inside the location use **'shift + rigth click'**, and you will see **'open powerShell window here'**, enter 
+```
 ./blender
 ```
 and enter.  

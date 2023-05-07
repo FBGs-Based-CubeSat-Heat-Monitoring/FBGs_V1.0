@@ -55,6 +55,7 @@ You will see it start process some of the data from ROS topic and stop there, be
   
 ## **For FemtoSense 1.8**   
 This software cannot be used directly in our projects, but it will give you an initial insight into our sensor data and it is highly recommended that you follow the installation process carefully as described in the instructions. After successful installation, you can use it to observe the wavelength variations of different channels under different deformations.   
+  
 Please note that this software should not be run in conjunction with TOPIC on the ROS system (no disaster, the system will tell you that the interface is already occupied).
   
 ## **Setting of IP and PORT**  
@@ -67,6 +68,7 @@ For ROS side
 ## **For connect to the interrogator**  
 (Only for Windows, Linux can use terminal to do so.)   
 From Settings of you system, choose 'change the adapter options' and right click your 'Ethemet net' to modify you TCP/IPv4 Properties, choose 'Use the following IP address' and enter '10.100.51.x'(x can be any number below 255 **except 0 and 22**)  
+  
 You can use FemtoSense 1.8 to check if you can connect to the interrogator or check how the wavelength looks like.  
   
 ## **For Virtual machine and IP address**   
@@ -95,11 +97,13 @@ VScodeIDE is already available in the image, you can use it to open the current 
   
 Most of your algorithms should be carried out in this section.   
 You can find the listener node code in **/home/ros/ros_rt_ws/src/ros_c/src/ros_c.cpp**, also you can open it via other IDEs.  
+  
 Currently you will see inside the code **line 145** there is a double varable call 'ang', set it to zero to get a good start.     
   
 The code of the topic is saved in **/home/ros/wsfaz/src/rtt_fazt-master/src/rtt_fazt-component.cpp** , normally you only use it to set the **meanwave length and the windows size: Line41-44**.  
     
 Currently we use VScodeIDE to modified and run our code, we set **Ctrl + Shift + B** compile the entire working space. So every time you modifiy the code, use **ctrl + shift + B** to compile.  
+  
 Feel free to change anything in confortable way.
    
     
@@ -114,7 +118,9 @@ Click the 'Scripting' on the top bar and open a new draft, code of Blender can b
 What you print and recevied from ROS will be shown in the powerShell window but not blender.  
 **If you just want you check the model with self made data, you don't need the powerShell.**
 A small part of your initial algorithm may be carried out in this section.   
+  
 Setting of the Hyper parameter is in line 353-358.   
+  
 Here are some explanation and limitation in the hyper parameter setting part:   
 1.radius and height is easy to understand,  
 2.building_node is the number of the node in each layer, currently you can only set it to multiples of 4,   

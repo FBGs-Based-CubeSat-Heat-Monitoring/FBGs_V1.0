@@ -1,5 +1,5 @@
 # FBGs_V1.0
-### This is a very initial version, our calculations in ROS are limited to the fibres, but in fact you can transfer the propagation part of the Blender part to C++ in ROS as well. **The c++ code needs to be run under ROS**, we put it here just in case you want to check it but don't need to down the entire VM image.    
+### This is a very initial version, our calculations in ROS are limited to the fibres, but in fact you can transfer the propagation part of the Blender part to C++ in ROS as well. The c++ code needs to be run under ROS, we put it here just in case you want to check it but don't want to down the entire VM image.    
   
 Since the file is too large to push on git.    
 Here is the google dive link:https://drive.google.com/drive/folders/1RDbxBo2eF2iyXJox-veGH0fYvCDK7ynd?usp=sharing     

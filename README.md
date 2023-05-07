@@ -8,7 +8,7 @@ The way to use the ROS image is descripted in two part below(**Virtual machine a
   
 ### **The order in which this document is read is not fixed, it simply acts like a user manual. You can read it once from start to finish, read it carefully if you are unsure, and come back to it if something goes wrong.**  
 
-## **After all the set up is done, you can run with following commands**  
+## **After all the set up is done, you can run as following**  
 ### You will need some terminals:  
   
 ### Terminal 1 for ros core(**don't close it after run it**): **roscore**  

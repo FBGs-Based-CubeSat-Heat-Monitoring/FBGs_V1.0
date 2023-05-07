@@ -11,22 +11,44 @@ The way to use the ROS image is descripted in two part below(**Virtual machine a
 ## **After all the set up is done, you can run as following**  
 ### You will need some terminals:  
   
-### Terminal 1 for ros core(**don't close it after run it**): **roscore**  
+### Terminal 1 for ros core(**don't close it after run it**): 
+```
+roscore
+```
   
 ### Terminal 2 for ros to recevie the data from interrogator:   
-step1: **cd wsfaz/src/rtt_fazt-master**  
-step2: **rttlua -i start.lua**  
+step1: 
+```
+cd wsfaz/src/rtt_fazt-master
+```
+step2: 
+```
+rttlua -i start.lua
+```  
 You will observe some erroneous data in Terminal2, which are caused by two situations. 1. there is no wavelength in Windows (the wavelength is out of its range or the reflected wave is not fully reflected back to the interrogator), 2. there are two wavelengths in one Windows size.You can ignore the FBGs that are not functioning properly and sometimes they do not affect the normal operation of other points (as in our case).  
   
 #### In the meantime you can use the following code to observe the data of the Topic (this part is **not necessary**).    
 Terminal 3:  
-step1: **cd wsfaz/src/rtt_fazt-master**  
-step2: **rostopic echo /wavelenghts **    
+step1: 
+```
+cd wsfaz/src/rtt_fazt-master
+```
+step2: 
+```
+rostopic echo /wavelenghts    
+```  
   
 ### Now you start recevie data from interrogator to ROS, but you will need to process and send the data out via socket(in **For ROS system** part)  
 you can use VScode's terminal and do follow:  
-step1 under this path( **ros@ubuntu:~/ros_rt_ws$  !!**): **source ./devel/setup.bash**  
-step2: **rosrun ros_c ros_c**  
+under path **ros@ubuntu:~/ros_rt_ws$**    
+step1 :  
+```
+source ./devel/setup.bash
+```
+step2:  
+```
+rosrun ros_c ros_c
+```
 You will see it start process some of the data from ROS topic and stop there, because its' socket needs receiver(Blender in our case).  
 
 ### Then you use powerShell to run Blender and the python script(**check For Blender part in case you don't understand**). If you have managed to get here, congratulations you have successfully completed all the settings, enjoy your project and good luck!  
@@ -44,7 +66,7 @@ For ROS side
   
 ## **For connect to the interrogator**  
 (Only for Windows, Linux can use terminal to do so.)   
-From Settings of you system, choose 'change the adapter options' and right click your 'Ethemet net' to modify you TCP/IPv4 Properties, choose 'Use the following IP address' and enter '10.100.51.x'(x can be any number below 255 **except 0,22**)  
+From Settings of you system, choose 'change the adapter options' and right click your 'Ethemet net' to modify you TCP/IPv4 Properties, choose 'Use the following IP address' and enter '10.100.51.x'(x can be any number below 255 **except 0 and 22**)  
 You can use FemtoSense 1.8 to check if you can connect to the interrogator or check how the wavelength looks like.  
   
 ## **For Virtual machine and IP address**   
@@ -53,8 +75,16 @@ Using a virtual machine tool such as VMware, select Open Virtual Machine and the
 For the IP settings, we recommend using VMnet8 as the IP of your virtual machine and connecting to the host via NAT so that you can keep your virtual machine connected to the Internet.  
   
 Then you can check you ip address via you Windows or Linux  
-**For windows cmd: input 'ipconfig' and search the VMnet8 IPv4 Address  
-For Linux terminal: input 'ip a' and search the VMnet8 IPv4 Address**
+**For windows cmd: input** 
+```
+ipconfig
+``` 
+and search the VMnet8 IPv4 Address     
+**For Linux terminal: input**   
+```
+ip a
+```
+and search the VMnet8 IPv4 Address
     
     
 ## **For ROS system:**  
@@ -75,7 +105,10 @@ Feel free to change anything in confortable way.
     
 ## **For Blender:**  
 **Open you Blender with powerShell when you want to receive the data from ROS system.**  
-You can right click you Blender's logo to file location, inside the location use **'shift + rigth click'**, and you will see **'open powerShell window here'**, enter '**./blender**'.  
+You can right click you Blender's logo to file location, inside the location use **'shift + rigth click'**, and you will see **'open powerShell window here'**, enter ```
+./blender
+```
+and enter.  
 Click the 'Scripting' on the top bar and open a new draft, code of Blender can be paste. Or using 'open file' is fine.
 What you print and recevied from ROS will be shown in the powerShell window but not blender.  
 **If you just want you check the model with self made data, you don't need the powerShell.**
